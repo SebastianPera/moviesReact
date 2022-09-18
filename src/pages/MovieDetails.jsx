@@ -10,23 +10,18 @@ export function MovieDetails() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    setLoading(true)
-    get("/movie/" + movieId)
-    .then((data) => {
-      setMovie(data);
-      setLoading(false)
-      }
-    );
+    setLoading(true);
+    setTimeout(() => {
+      get("/movie/" + movieId).then((data) => {
+        setMovie(data);
+        setLoading(false);
+      });
+    }, 1000);
   }, [movieId]);
 
   if (loading) {
-    return <Spinner/>
+    return <Spinner />;
   }
-
-  if (!movie) {
-    return null;
-  }
-
 
   const imagenUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
   return (

@@ -1,7 +1,7 @@
-import styles from "./App.module.css";
 import { Routes, Route, Link } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage";
 import { MovieDetails } from './pages/MovieDetails';
+import styles from "./App.module.css";
 
 function App() {
   return (

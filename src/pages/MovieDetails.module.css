@@ -2,6 +2,7 @@
  display: flex;
  justify-content: center;
  flex-wrap: wrap;
+ text-align: justify;
 }
 
 .col{
@@ -21,4 +22,5 @@
 .firstItem{
   margin-top: 0;
 }
+
 

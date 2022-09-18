@@ -1,6 +1,11 @@
 .spinner{
+  /* display: block;
+  position: fixed;
+  top: 50%;
+  right: 50%; */
   display: flex;
   justify-content: center;
+  margin: 30px;
 }
 
 .spinning{

@@ -1,5 +1,4 @@
 const API = "https://api.themoviedb.org/3";
-// const API_KEY = "api_key=8c438c37dc4b04678879b9ffb2c08913";
 
 export async function get(path) {
   return fetch(API + path, {
