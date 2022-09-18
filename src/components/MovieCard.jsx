@@ -1,8 +1,9 @@
-import styles from "./MovieCard.module.css";
 import { Link } from "react-router-dom";
+import { getMovieImg } from './../utils/getMovieImg';
+import styles from "./MovieCard.module.css";
 
 export function MovieCard({ movie }) {
-  const imagenUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
+  const imageUrl = getMovieImg(movie.poster_path, 300);
 
   return (
     <li className={styles.movieCard}>
@@ -11,7 +12,7 @@ export function MovieCard({ movie }) {
           width={230}
           height={345}
           className={styles.movieImage}
-          src={imagenUrl}
+          src={imageUrl}
           alt={movie.title}
         />
         <div>{movie.title}</div>

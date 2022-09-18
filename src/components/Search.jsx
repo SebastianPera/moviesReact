@@ -1,17 +1,15 @@
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import styles from "./Search.module.css";
 
 export function Search() {
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get("search");
   const navigate = useNavigate();
-  const [searchText, setSearchText] = useState("");
-
+  
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setSearchText("");
+    e.preventDefault();  
     e.target.reset();
-    navigate("/?search=" + searchText);
   };
 
   return (
@@ -21,12 +19,14 @@ export function Search() {
           className={styles.searchInput}
           type="text"
           placeholder="Search Movies"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          aria-label="Search Movies"
+          value={search ?? ""}
+          onChange={(e) => {
+            const value = e.target.value;
+            navigate("/?search=" + value)
+          }}
         />
-        <button className={styles.searchButton} type="submit">
-          <FaSearch size={20} />
-        </button>
+        <FaSearch color="black" className={styles.searchButton} size={20} />
       </div>
     </form>
   );
